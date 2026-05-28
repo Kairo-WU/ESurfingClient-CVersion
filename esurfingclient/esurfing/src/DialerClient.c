@@ -1,5 +1,9 @@
 #include "cipher/CipherInterface.h"
+    if (g_prog_status[thread_idx].auth_cfg.keep_retry > 30)
+                g_prog_status[thread_idx].auth_cfg.keep_retry = 30;
 #include "utils/PlatformUtils.h"
+    if (g_prog_status[thread_idx].auth_cfg.keep_retry > 30)
+                g_prog_status[thread_idx].auth_cfg.keep_retry = 30;
 #include "utils/Shutdown.h"
 #include "utils/Logger.h"
 #include "DialerClient.h"
