@@ -1,9 +1,5 @@
-#include "cipher/CipherInterface.h"
-    if (g_prog_status[thread_idx].auth_cfg.keep_retry > 30)
-                g_prog_status[thread_idx].auth_cfg.keep_retry = 30;
+﻿#include "cipher/CipherInterface.h"
 #include "utils/PlatformUtils.h"
-    if (g_prog_status[thread_idx].auth_cfg.keep_retry > 30)
-                g_prog_status[thread_idx].auth_cfg.keep_retry = 30;
 #include "utils/Shutdown.h"
 #include "utils/Logger.h"
 #include "DialerClient.h"
@@ -118,6 +114,10 @@ static bool heartbeat()
     }
     g_prog_status[thread_idx].auth_cfg.keep_retry = strtouint64(parsed_interval); // 将字符串时间转成 uint64_t 时间
     free(parsed_interval);
+
+    if (g_prog_status[thread_idx].auth_cfg.keep_retry > 30)
+        g_prog_status[thread_idx].auth_cfg.keep_retry = 30;
+
     return true;
 }
 
@@ -205,6 +205,10 @@ static bool login()
     }
     g_prog_status[thread_idx].auth_cfg.keep_retry = strtouint64(parsed_keep_retry); // 将字符串时间转成 uint64_t 时间
     free(parsed_keep_retry);
+
+    if (g_prog_status[thread_idx].auth_cfg.keep_retry > 30)
+        g_prog_status[thread_idx].auth_cfg.keep_retry = 30;
+
     LOG_INFO("下一次重试: %" PRIu64 " 秒后", g_prog_status[thread_idx].auth_cfg.keep_retry);
     return true;
 }
@@ -808,3 +812,4 @@ void work()
         sleep_ms(10000);
     }
 }
+
