@@ -175,6 +175,19 @@ bool init_logger()
         fprintf(stderr, "[ERROR] 日志文件路径太长 (最大 %zu)\n", sizeof(s_logger_cfg.log_file));
         return false;
     }
+    // 如果旧 run.log 已存在(上次异常退出遗留),先归档再打开新的
+    {
+        struct stat st;
+        if (stat(s_logger_cfg.log_file, &st) == 0 && st.st_size > 0)
+        {
+            char cur_tm[32];
+            get_fmt_time(cur_tm, FILE_FORMAT);
+            char archive_name[PATH_MAX];
+            snprintf(archive_name, sizeof(archive_name), "%s%c%s.log", safe_str(s_logger_cfg.log_dir), SEP, safe_str(cur_tm));
+            rename(s_logger_cfg.log_file, archive_name);
+        }
+    }
+
     s_logger_cfg.file_handle = fopen(s_logger_cfg.log_file, "a");
     if (!s_logger_cfg.file_handle)
     {

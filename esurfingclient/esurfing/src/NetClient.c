@@ -559,7 +559,10 @@ NetworkStatus get_last_location()
             sleep_ms(1000);
             break;
         }
-    } while (resp.status != REQUEST_REDIRECT);
+    } while (resp.status != REQUEST_REDIRECT && resp.status != REQUEST_SUCCESS);
+
+    // 已有网络时跳过重定向处理
+    if (resp.status == REQUEST_SUCCESS) return REQUEST_SUCCESS;
 
     while (resp.status == REQUEST_REDIRECT) resp = get(g_prog_status[thread_idx].last_location);
 
