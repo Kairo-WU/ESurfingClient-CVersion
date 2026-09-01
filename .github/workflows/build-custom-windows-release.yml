@@ -36,5 +36,6 @@ jobs:
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: Kairo-WU/ESurfingClient-CVersion
         run: |
           gh release create "v2.0.4-r2-keji-xiaobaizhi"             "dist/unpacked/ESurfingClient-2.0.4-r2-keji-xiaobaizhi-windows-x86_64.exe"             --target "${GITHUB_SHA}"             --title "ESurfingClient 2.0.4-r2 科技小白纸版"             --notes "启动横幅仅保留分隔线和“科技小白纸”。基于 v2 分支提交构建。"             --latest
