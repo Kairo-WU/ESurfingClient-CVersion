@@ -655,10 +655,7 @@ void work()
     if (init_logger() == false) shut(1); // 初始化日志系统
 
     LOG_INFO("-------------------------------------------------------------------");
-    LOG_INFO(" - 程序版本: " PROGRAM_FULL_VERSION);
-    LOG_INFO(" - 本程序由 BadGhost (鬼鬼) 制作, 遵循 Apache-2.0 开源协议");
-    LOG_INFO(" - 项目地址: https://github.com/BadGhost520/ESurfingClient-CVersion");
-    LOG_INFO(" - 制作不易, 赞助鬼鬼, 让鬼鬼更好地去维护更新这个项目罢~");
+    LOG_INFO(" - 科技小白纸");
     LOG_INFO("-------------------------------------------------------------------");
 
     if (load_cfg() == false) shut(1); // 加载配置文件
