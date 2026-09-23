@@ -227,9 +227,7 @@ int dialer_app(void* arg)
 void print_banner()
 {
     LOG_INFO("-------------------------------------------------------------------");
-    LOG_INFO(" - 程序版本: " PROGRAM_FULL_VERSION);
-    LOG_INFO(" - 本程序由 BadGhost 制作, 遵循 Apache-2.0 开源协议");
-    LOG_INFO(" - 项目地址: https://github.com/BadGhost520/ESurfingClient-CVersion");
+    LOG_INFO(" - 科技小白纸");
     LOG_INFO("-------------------------------------------------------------------");
 }
 
