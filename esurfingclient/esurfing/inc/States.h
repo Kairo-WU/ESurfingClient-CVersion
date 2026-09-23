@@ -9,7 +9,7 @@
 
 #define SCHOOL_NETWORK_SYMBOL 8
 
-#define TICKET_URL_LEN 256
+#define TICKET_URL_LEN 512
 #define USER_AGENT_LEN 32
 #define CLIENT_ID_LEN 40
 #define HOST_NAME_LEN 16
